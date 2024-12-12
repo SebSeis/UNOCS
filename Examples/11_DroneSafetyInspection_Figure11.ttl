@@ -1,0 +1,54 @@
+@prefix unocs: <http://www.w3id.org/unocs/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dice: <http://www.w3id.org/digitalconstruction/0.5/> .
+@prefix dicp: <http://www.w3id.org/digitalconstruction/0.5/Processes#> .
+@prefix dicv: <http://www.w3id.org/digitalconstruction/0.5/Variables#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <http://www.w3id.org/droneSafetyInspection/> .
+
+:TimeInstantd5b67a9f a dice:TimeInstant ;
+    dicv:hasValue "2024-10-13T12:45:00"^^xsd:dateTime .
+
+:TimeInstant8ae34bb9 a dice:TimeInstant ;
+    dicv:hasValue "2024-09-13T12:48:00"^^xsd:dateTime .
+
+:TimeIntervalHazardA a dice:TimeInterval ;
+    dicp:hasStart :TimeInstantd5b67a9f ;
+    dicp:hasEnd :TimeInstant8ae34bb9 .
+
+:Droneaa595fb2 a dice:Agent ;
+    dicp:hasResponsible :Failure1 .
+
+:Failure1 a unocs:NonConformity ;
+    unocs:hasNonConformCharacteristic :ActualNumberOfBoardsA_dad7a1f3 ;
+    unocs:detects :InspectionTaskGuardrailA .
+
+:InspectionTaskGuardrailA a unocs:SafetyInspection ;
+    unocs:hasInspectionCharacteristic :NumberOfBoards_92376006 ;
+    dicp:succeeds :AssemblingGuardrailSystemA ;
+    dicp:hasObject :GuardrailA .
+
+:ActualNumberOfBoardsA_dad7a1f3 a unocs:ActualCharacteristic ;
+    dicv:hasValue 2 .
+
+:NumberOfBoards_92376006 a unocs:Characteristic ;
+    unocs:hasRequiredCharacteristic :RequiredNumberOfBoards_dad548a2s8 ;
+    unocs:hasActualCharacteristic :ActualNumberOfBoardsA_dad7a1f3 .
+
+:RequiredNumberOfBoards_dad548a2s8 a unocs:RequiredCharacteristic ;
+    dicv:hasValue 3 .
+
+:AssemblingGuardrailSystemA a unocs:CorrectiveAction ;
+    unocs:engagesControlEntity :GuardrailA .
+
+:GuardrailA a unocs:EngineeringControlEntity ;
+    unocs:hasNumberOfBoards :NumberOfBoards_92376006 .
+
+:GuardrailRequirement a unocs:Requirement ;
+    unocs:hasAssignedCharacteristic :RequiredNumberOfBoards_dad548a2s8 .
+
+:BGBAU a unocs:Regulation ;
+    unocs:requires :GuardrailRequirement .
+
+:aceb8b1e251d415184c6 a unocs:Image ;
+    unocs:hasRecord :Droneaa595fb2 .

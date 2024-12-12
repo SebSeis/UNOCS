@@ -1,0 +1,69 @@
+@prefix : <http://www.w3id.org/example/> .#Fall hazard mitigation (Alternative)​
+@prefix unocs: <http://www.w3id.org/unocs/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dice: <http://www.w3id.org/digitalconstruction/0.5/> .
+@prefix dicp: <http://www.w3id.org/digitalconstruction/0.5/Processes#> .
+@prefix dicv: <http://www.w3id.org/digitalconstruction/0.5/Variables#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Example: Fall hazard mitigation (Alternative)
+:FallHazardA a unocs:FallHazard ;
+    unocs:hasHazardType :FallHazard ;
+    unocs:hasHazardState "controlled" ;
+    unocs:hasRisk "7"^^xsd:integer ;
+    unocs:mitigatesHazard :FallHazard ;
+    dicp:occupiesTimeInterval :TimeIntervalGuardrailsystemA .
+
+:TimeIntervalGuardrailsystemA a dice:TimeInterval ;
+    dicp:hasStart :TimeInstant8aeb4aa9 ;
+    dicp:hasEnd :TimeInstantd5b67b0e ;
+    dicp:hasAgent :Pete .
+
+:TimeInstant8aeb4aa9 a dice:TimeInstant ;
+    dicv:hasValue "2024-09-13T11:30:00+00:00"^^xsd:dateTime .
+
+:TimeInstantd5b67b0e a dice:TimeInstant ;
+    dicv:hasValue "2024-09-15T15:30:00+00:00"^^xsd:dateTime .
+
+:Pete a unocs:Person .
+
+:UseOfPersFallArrestType a unocs:ControlActionProcedure ;
+    unocs:hasType :UseOfPersFallArrest ;
+    unocs:engages :PersFallArrestSystemA .
+
+:PersFallArrestSystemA a unocs:PPEEntity ;
+    unocs:hasCharacteristic :HasSafetyLock_8f0105dd, :ReqCECert_8f0105dd, :AnchorCompli_9d4d61, :IsEnergyAbs_47304b35, :AnchorPointCapacity_36ebbb .
+
+# Characteristics
+:HasSafetyLock_8f0105dd a unocs:Characteristic ;
+    rdfs:label "Has Safety Lock"@en .
+
+:ReqCECert_8f0105dd a unocs:Characteristic ;
+    rdfs:label "Requires CE Certificate"@en .
+
+:AnchorCompli_9d4d61 a unocs:Characteristic ;
+    rdfs:label "Anchor Compliance"@en .
+
+:IsEnergyAbs_47304b35 a unocs:Characteristic ;
+    rdfs:label "Is Energy Absorbing"@en .
+
+:AnchorPointCapacity_36ebbb a unocs:Characteristic ;
+    rdfs:label "Anchor Point Capacity"@en .
+
+:PersFallArrestRequirement a unocs:Requirement ;
+    unocs:hasAssignedCharacteristic :CarabinerHasSafetyLock, :RequiresCECertificate, :AnchorCompliance, :IsEnergyAbsorbing, :AnchorPointCapacity .
+
+:CarabinerHasSafetyLock a unocs:RequiredCharacteristic ;
+    rdfs:label "Carabiner Has Safety Lock"@en .
+
+:RequiresCECertificate a unocs:RequiredCharacteristic ;
+    rdfs:label "Requires CE Certificate"@en .
+
+:AnchorCompliance a unocs:RequiredCharacteristic ;
+    rdfs:label "Anchor Compliance"@en .
+
+:IsEnergyAbsorbing a unocs:RequiredCharacteristic ;
+    rdfs:label "Is Energy Absorbing"@en .
+
+:AnchorPointCapacity a unocs:RequiredCharacteristic ;
+    rdfs:label "Anchor Point Capacity"@en .

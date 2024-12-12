@@ -1,0 +1,81 @@
+@prefix : <http://www.w3id.org/exampleFallHazardMitigation/> .
+@prefix unocs: <http://www.w3id.org/unocs/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dice: <http://www.w3id.org/digitalconstruction/0.5/> .
+@prefix dicp: <http://www.w3id.org/digitalconstruction/0.5/Processes#> .
+@prefix dicv: <http://www.w3id.org/digitalconstruction/0.5/Variables#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Instances and their types
+:FallHazardA a unocs:Hazard ;
+    unocs:hasHazardType :FallHazard ;
+    unocs:hasHazardZone :ZoneX ;
+    unocs:hasHazardState "controlled" ;
+    unocs:hasRisk "2"^^xsd:integer ;
+    unocs:causedByEntity :SlabA ;
+    dice:hasLocation :ZoneX ;
+    dicp:occupiesTimeInterval :TimeInterval_ef5f97a04bd9 ;
+    unocs:isDefinedByRegulation :BG-BAU ;
+    unocs:mitigates :Hazard ;
+    unocs:controls :AssemblingGuardrailSystemA .
+
+:AssemblingGuardrailSystemA a unocs:CorrectiveAction ;
+    unocs:engages :GuardrailA .
+
+:GuardrailA a unocs:EngineeringControlEntity ;
+    unocs:hasCharacteristic :BoardThickness_8f0105dd, :PoleDistance_8f0105dd, :DistanceBoards_29d4d61, :NumberOfBoards_47304b35, :TopRailHeight_6436ebb, :BoardWidth_12dcs .
+
+# Characteristics
+:BoardThickness_8f0105dd a unocs:Characteristic ;
+    rdfs:label "Board Thickness"@en .
+
+:PoleDistance_8f0105dd a unocs:Characteristic ;
+    rdfs:label "Pole Distance"@en .
+
+:DistanceBoards_29d4d61 a unocs:Characteristic ;
+    rdfs:label "Distance Between Boards"@en .
+
+:NumberOfBoards_47304b35 a unocs:Characteristic ;
+    rdfs:label "Number of Boards"@en .
+
+:TopRailHeight_6436ebb a unocs:Characteristic ;
+    rdfs:label "Top Rail Height"@en .
+
+:BoardWidth_12dcs a unocs:Characteristic ;
+    rdfs:label "Board Width"@en .
+
+# Time Intervals
+:TimeInterval_ef5f97a04bd9 a dice:TimeInterval ;
+    dicp:hasStart :TimeInstant-8aeb4aa9 ;
+    dicp:hasEnd :TimeInstant-d5b67b0e .
+
+:TimeInstant-8aeb4aa9 a dice:TimeInstant ;
+    dicv:hasValue "2024-09-13T11:30:00+00:00"^^xsd:dateTime .
+
+:TimeInstant-d5b67b0e a dice:TimeInstant ;
+    dicv:hasValue "2024-09-15T15:30:00+00:00"^^xsd:dateTime .
+
+# Regulations
+:BG-BAU a unocs:Regulation ;
+    rdfs:label "BG-BAU Regulation"@en .
+
+:GuardrailRequirement a unocs:Requirement ;
+    unocs:hasRequiredCharacteristic :RequiredBoardThickness, :RequiredPoleDistance, :RequiredBoardDistance, :RequiredNoOfBoards, :RequiredTopRailHeight, :RequiredBoardWidth .
+
+:RequiredBoardThickness a unocs:RequiredCharacteristic ;
+    rdfs:label "Required Board Thickness"@en .
+
+:RequiredPoleDistance a unocs:RequiredCharacteristic ;
+    rdfs:label "Required Pole Distance"@en .
+
+:RequiredBoardDistance a unocs:RequiredCharacteristic ;
+    rdfs:label "Required Distance Between Boards"@en .
+
+:RequiredNoOfBoards a unocs:RequiredCharacteristic ;
+    rdfs:label "Required Number of Boards"@en .
+
+:RequiredTopRailHeight a unocs:RequiredCharacteristic ;
+    rdfs:label "Required Top Rail Height"@en .
+
+:RequiredBoardWidth a unocs:RequiredCharacteristic ;
+    rdfs:label "Required Board Width"@en .

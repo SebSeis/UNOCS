@@ -1,0 +1,68 @@
+@prefix : <http://www.w3id.org/unocs/> .
+@prefix unocspas: <http://www.w3id.org/unocspas> .
+@prefix unocsbgbau: <http://www.w3id.org/unocsbgbau> .
+@prefix unocsenergywheel: <http://www.w3id.org/unocsenergywheel> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dice: <http://www.w3id.org/digitalconstruction/0.5/> .
+@prefix dicp: <http://www.w3id.org/digitalconstruction/0.5/Processes#> .
+@prefix dicv: <http://www.w3id.org/digitalconstruction/0.5/Variables#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Instances and their types
+:FallHazardA a :Hazard ;
+    :hasHazardType unocsbgbau:FallHazard ;
+    :hasHazardZone :ZoneX ;
+    :hasHazardState "uncontrolled" ;
+    :hasRisk "2"^^xsd:integer ;
+    :causedByEntity :SlabA ;
+    dice:hasLocation :ZoneX ;
+    dicp:occupiesTimeInterval :TimeIntervalHazardA ;
+    :isDefinedByRegulation :BG-BAU;
+    :controls :GuardrailControl ;
+    :isMitigatedByControlProcedure :PersonalFallArrestProcedure .
+
+unocsbgbau:FallHazard a :HazardType ;
+rdfs:label "FallHazard"@en ;
+    :implies unocsenergywheel:GravityHazard ;
+    :implies unocspas:FallHazard ;   
+:isDefinedByRegulation :BG-BAU.
+
+unocspas:FallHazard a :HazardType ;
+    :implies unocsenergywheel:GravityHazard ;   
+:isDefinedByRegulation :PAS1192-6.
+
+unocsenergywheel:GravityHazard a :HazardType ;
+    :isDefinedByRegulation :EnergyWheel .
+
+:ZoneX a :HazardZone .
+
+:SlabA a dice:Entity ;
+    rdfs:label "Slab A"@en .
+
+:TimeIntervalHazardA a dice:TimeInterval ;
+    dicp:hasStart :TimeInstant-8aeb4aa9 ;
+    dicp:hasEnd :TimeInstant-d5b67b0e .
+
+:TimeInstant-8aeb4aa9 a dice:TimeInstant ;
+    dicv:hasValue "2024-09-13T11:30:00+00:00"^^xsd:dateTime .
+
+:TimeInstant-d5b67b0e a dice:TimeInstant ;
+    dicv:hasValue "2024-09-15T16:30:00+00:00"^^xsd:dateTime .
+
+# Control procedures
+:GuardrailControl a :EngineeringControlProcedure ;
+    rdfs:label "Guardrail Control"@en ;
+    :precedenceOver :PersonalFallArrestProcedure .
+
+:PersonalFallArrestProcedure a :PPEControlProcedure ;
+    rdfs:label "Personal Fall Arrest Procedure"@en .
+
+# Regulations
+:BG-BAU a :Regulation ;
+    rdfs:label "BG-BAU Regulation"@en .
+
+:PAS1192-6 a :Regulation ;
+    rdfs:label "PAS1192-6 Regulation"@en .
+
+:EnergyWheel a :Regulation ;
+    rdfs:label "Energy Wheel Regulation"@en .
