@@ -402,15 +402,16 @@ EAfDe6H3Dy6Ll456WEJsRZS630MwCAOI20ei5OBpxse5zcBZw8eS4uPpfIuDiCainIg9umBCU0GZzgLZ
         </div>
 
         <h3>UNOCS - Safety</h3>
-        <p>The Core Ontology Module defines key relationships, such as <code>unocs:causes</code> connecting
-            <code>unocs:Hazard</code> to <code>unocs:Incident</code>, and mitigation requirements for controlling
-            hazards. Safety inspections verify conformance to regulations and identify unforeseen hazards during
-            construction.
-        </p>
-
-        <p> <code>unocs:CorrectiveAction</code> and <code>unocs:SafetyInspection</code>, which
-            integrate seamlessly into construction schedules and resource allocations. By reusing DiCon and OCQA, UNOCS
-            facilitates effective data sharing and adaptability.</p>
+        <p> Relevant entities for safety inspections address various aspects of inspection processes within the
+            construction safety domain. The central entity, unocs:SafetyInspection, inherits from dicp:Activity
+            to incorporate the temporal aspect, required equipment, and the assignment of a responsible worker to
+            complete the task. The purpose of the inspection is to verify the correct implementation of corrective
+            control actions and the associated corrective control entity. Consequently, the inspection must ensure
+            follow-up on the corrective control action.</p>
+        <p> The inspection is linked to several requirements outlined in regulations, with each requirement defining the
+            necessary characteristics of corrective control entities. However, the actual characteristics of these
+            entities may differ from the specified requirements. A nonconformity arises if the actual characteristics
+            deviate from the requirements, necessitating the initiation of a new corrective action.</p>
 
         <div class="figure">
             <img src="SafetyInspectionUNOCS2.svg" alt="Overview of Core UNOCS module"
@@ -425,8 +426,10 @@ EAfDe6H3Dy6Ll456WEJsRZS630MwCAOI20ei5OBpxse5zcBZw8eS4uPpfIuDiCainIg9umBCU0GZzgLZ
         <ul>
             <li><a href="Examples/08_FallHazard_Figure8.ttl" target="_blank">FallHazard</a></li>
             <li><a href="Examples/09_FallHazardMitigation_Figure9.ttl" target="_blank">Fall Hazard Mitigation</a></li>
-            <li><a href="Examples/10_FallHazardMitigation(Alternative)_Figure10​.ttl" target="_blank">Fall Hazard Mitigation Alternative</a></li>
-            <li><a href="Examples/11_DroneSafetyInspection_Figure11.ttl" target="_blank">Safety Inspection via Drone</a></li>
+            <li><a href="Examples/10_FallHazardMitigation(Alternative)_Figure10​.ttl" target="_blank">Fall Hazard
+                    Mitigation Alternative</a></li>
+            <li><a href="Examples/11_DroneSafetyInspection_Figure11.ttl" target="_blank">Safety Inspection via Drone</a>
+            </li>
             <li><a href="Examples/12_ExampleIncident_Figure12.ttl" target="_blank">Incident</a></li>
         </ul>
     </section>
