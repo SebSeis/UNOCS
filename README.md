@@ -9,5 +9,5 @@ UNOCS is a safety ontology designed to unify construction safety knowledge from 
 
 ## Ontology resources
 * HTML      https://sebseis.github.io/UNOCS/
-* Turtle    https://sebseis.github.io/UNOCS/UNOCS.ttl
+* Turtle    https://sebseis.github.io/UNOCS/uncos.ttl
 * GitHub    https://github.com/SebSeis/UNOCS
